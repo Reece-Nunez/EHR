@@ -8,22 +8,38 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
       {/* Navigation Bar */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm">
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
-          <motion.h1
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 py-4 sm:py-6 flex items-center justify-between gap-4">
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 tracking-tight"
+            className="flex items-center gap-3"
           >
-            EHR Research Institute
-          </motion.h1>
+            <Image
+              src="/erh-logo.png"
+              alt="ERH Research Institute Logo"
+              width={80}
+              height={80}
+              className="w-14 h-14 sm:w-16 sm:h-16 md:w-36 md:h-24 rounded-full"
+            />
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent tracking-tight">
+              ERH Research Institute
+            </h1>
+          </motion.div>
           <motion.a
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             href="https://surveillancenation.us/"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-gray-900 hover:bg-gray-800 text-white px-3 sm:px-6 py-2 sm:py-2.5 rounded-full transition-all duration-300 font-medium text-xs sm:text-sm md:text-base shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 sm:px-8 py-2.5 sm:py-3 rounded-full transition-all duration-300 font-bold text-sm sm:text-lg md:text-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center gap-2"
           >
+            <Image
+              src="/erh-logo.png"
+              alt="Surveillance Nation Logo"
+              width={40}
+              height={40}
+              className="w-8 h-8 sm:w-16 sm:h-12 rounded-full"
+            />
             Surveillance Nation
           </motion.a>
         </div>
@@ -89,23 +105,80 @@ export default function Home() {
               <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-6 sm:mb-8 text-center">
                 Our Mission
               </h3>
-              <div className="prose prose-sm sm:prose-lg max-w-none text-gray-700 leading-relaxed">
-                <p className="mb-4 sm:mb-6 text-sm sm:text-base">
-                  Advances in technology now enable virtually undetectable, through-wall imaging inside
-                  homes using devices that can be carried using Unmanned Aerial Vehicles (UAVs). Along
-                  with small, ground-traversing robots that can enter a building through a small crack,
-                  it's now possible to delve into people's private lives without their knowledge and
-                  without leaving any evidence it has occurred.
+              <div className="prose prose-sm sm:prose-lg max-w-none text-gray-700 leading-relaxed space-y-4">
+                <p className="text-sm sm:text-base">
+                  How would you feel if you knew that the Government was watching you 24 hours a day in your home?
+                  Would it affect what you do or how you do it? How would you feel knowing that someone was watching
+                  you during sex, or while you were balancing your bank account? How about while planning business
+                  strategies, or evaluating prices for real estate? What about coordinating business mergers or
+                  calculating proprietary information about profits and losses?
                 </p>
-                <p className="mb-4 sm:mb-6 text-sm sm:text-base">
-                  The insight and advantages provided by this inside information has apparently persuaded
-                  the Federal Government to implement a clandestine program, in clear violation of the
-                  Fourth Amendment, that is being used to perform extrajudicial punishment, non-consensual
-                  medical experimentation, and other nefarious operations in secret.
+                <p className="text-sm sm:text-base">
+                  Maybe you think "That could never happen in the United States". After all, the Constitution
+                  includes the Fourth Amendment which explicitly prohibits this. But what if there were ways to do
+                  this without your knowledge and that were undetectable? Do you think that it would be used? How
+                  would you know? What could you do about it? Would people assume you were paranoid or mentally ill?
+                  Who would you go to enforce your Fourth Amendment rights?
                 </p>
-                <p className="text-lg sm:text-xl font-semibold text-gray-900">
-                  The ERHRI is a non-profit, 501(c)3 organization whose objective is to research these
-                  technologies and educate the public about them.
+                <p className="text-sm sm:text-base">
+                  Advances in technology now enable exactly this scenario: Through-wall, lens-less imaging techniques
+                  that are virtually undetectable have been developed that can see in the dark. Unmanned Aerial
+                  Vehicles (UAVs) with invisibility cloaks can follow anyone, anywhere, undetected, or transport
+                  other robotic devices or dangerous substances to essentially any location. Small, ground-traversing
+                  robots can slip through even small cracks to enter any building. Coding and compression techniques
+                  have been developed that approach theoretical limits and allow unbelievably low power radio
+                  transmission of information. It should not be too outlandish to consider that the technologies used
+                  for robotic surgery, repairing reactors where humans cannot survive the radiation, and the
+                  exploration of Mars remotely using radio signals that have incredibly low power levels, might be
+                  being applied to more down-to-earth, albeit illegal, activities.
+                </p>
+                <p className="text-sm sm:text-base">
+                  The potential power, insight, and financial gains from purloined knowledge combined with the
+                  anonymity these high-technologies provide is a powerful motivation to violate the Fourth Amendment.
+                  And given the basic foundation of the US legal system where the burden of proof is on the plaintiff,
+                  proving such a violation is virtually impossible, especially by the average citizen, when these
+                  modern technologies are used. Citizens assume that they are protected by the Fourth Amendment, and
+                  authorities pay lip service to it, but there are no easy ways to know if it is being violated nor
+                  any mechanisms to enforce it. The use of these technologies effectively nullifies the Fourth
+                  Amendment just a surely as having imaging and listening devices in every room of your home.
+                  Moreover, there is the distinct possibility that law enforcement organizations that ought to be
+                  responsible for investigating such activities may well be participating or colluding in these
+                  violations of Constitutional civil rights. After all, it tremendously simplifies their jobs.
+                </p>
+                <p className="text-sm sm:text-base">
+                  Hence, the fundamental integrity of law-enforcement is essential in these matters, but history does
+                  not paint a good picture. In the 1970s Senator Frank Church chaired a committee that investigated
+                  abuses of surveillance capabilities by intelligence agencies, and found rampant violations. Although
+                  those agencies promised to rein in such violations, the real message that they took home was that,
+                  in the future, they should be careful not to be caught. The motivation to perform illegal
+                  surveillance is so powerful and persistent that Glenn Greenwald states that it is not a matter of
+                  if, but when these agencies will violate the law. Currently there are no mechanisms available to
+                  citizens to allege and have investigated the use of high-technology, warrantless surveillance.
+                </p>
+                <p className="text-sm sm:text-base">
+                  Although most people are aware of the web-based snooping being performed by various agencies as
+                  revealed by Edward Snowden, such interceptions leave a record that they have occurred. These new
+                  technologies open a whole other arena of more invasive surveillance, without any obligatory trace,
+                  whereby people can be observed in their homes and followed inconspicuously wherever they go. This
+                  brings with it a whole set of new and very scary dangers.
+                </p>
+                <p className="text-sm sm:text-base">
+                  For one, if you can be observed at your computer or phone typing in passwords, any encryption of
+                  data to obtain privacy and secure communications could be bypassed. Any information on your screen
+                  would be available to the observers, allowing them to filch sensitive data and use it to their
+                  advantage. These advantages could be of many varieties, but include secrets about activities that
+                  could easily be exploited for financial gain. Used this way, it would enable self-funding, and free
+                  these programs from funding constraints or other oversight. Many other nefarious applications of
+                  this technology can be imagined.
+                </p>
+                <p className="text-sm sm:text-base">
+                  As much as this sounds like a science fiction plot or conspiracy theory, an organization with ties
+                  to Federal law-enforcement is currently developing these technologies and a substantial investment
+                  in hardware and personnel has already been made and deployed. Although able to hide behind the
+                  anonymity these modern technologies provide, additional steps have been taken to avoid discovery and
+                  investigation using infiltration, dis-/mis-information, and social engineering as well as relying in
+                  large part on the general belief that such an egregiously illegal and unconstitutional program would
+                  never be undertaken - a form of "the big lie" propaganda technique.
                 </p>
               </div>
             </motion.div>
@@ -137,7 +210,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-base sm:text-lg md:text-xl mb-2 opacity-90"
             >
-              EHR RI is a 501(c)3 corporation. Your contributions are tax-deductible.
+              ERH RI is a 501(c)3 corporation. Your contributions are tax-deductible.
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -174,7 +247,7 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h4 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">EHR Research Institute</h4>
+            <h4 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">ERH Research Institute</h4>
             <p className="text-gray-400 mb-4 sm:mb-6 text-sm sm:text-base">
               Dedicated to researching surveillance technologies and protecting constitutional rights
             </p>
