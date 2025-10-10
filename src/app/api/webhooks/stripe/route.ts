@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { Resend } from 'resend';
 
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+
 function getStripe() {
   return new Stripe(process.env.STRIPE_SECRET_KEY!);
 }

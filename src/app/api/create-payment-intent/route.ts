@@ -1,8 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+
 function getStripe() {
   const secretKey = process.env.STRIPE_SECRET_KEY;
+
+  // Debug logging
+  console.log('Environment check:', {
+    hasSecretKey: !!secretKey,
+    keyPrefix: secretKey?.substring(0, 7),
+    nodeEnv: process.env.NODE_ENV,
+  });
+
   if (!secretKey) {
     throw new Error('STRIPE_SECRET_KEY is not configured');
   }
