@@ -2,12 +2,16 @@ import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 
 function getStripe() {
-  return new Stripe(process.env.STRIPE_SECRET_KEY!);
+  const secretKey = process.env.STRIPE_SECRET_KEY;
+  if (!secretKey) {
+    throw new Error('STRIPE_SECRET_KEY is not configured');
+  }
+  return new Stripe(secretKey);
 }
 
 export async function POST(req: NextRequest) {
-  const stripe = getStripe();
   try {
+    const stripe = getStripe();
     const { amount, recurring } = await req.json();
 
     // Validate amount
@@ -37,10 +41,11 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({
       clientSecret: paymentIntent.client_secret,
     });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error creating payment intent:', error);
+    const errorMessage = error?.message || 'Failed to create payment intent';
     return NextResponse.json(
-      { error: 'Failed to create payment intent' },
+      { error: errorMessage },
       { status: 500 }
     );
   }
