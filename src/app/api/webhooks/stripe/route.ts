@@ -2,9 +2,13 @@ import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { Resend } from 'resend';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
+function getStripe() {
+  return new Stripe(process.env.STRIPE_SECRET_KEY!);
+}
 
-const resend = new Resend(process.env.RESEND_API_KEY!);
+function getResend() {
+  return new Resend(process.env.RESEND_API_KEY!);
+}
 
 export async function POST(req: NextRequest) {
   const body = await req.text();
@@ -18,6 +22,7 @@ export async function POST(req: NextRequest) {
   }
 
   let event: Stripe.Event;
+  const stripe = getStripe();
 
   try {
     event = stripe.webhooks.constructEvent(
@@ -70,6 +75,9 @@ export async function POST(req: NextRequest) {
 }
 
 async function handleSuccessfulPayment(paymentIntent: Stripe.PaymentIntent) {
+  const stripe = getStripe();
+  const resend = getResend();
+
   try {
     // Get customer email from payment method or charge
     const charges = await stripe.charges.list({
@@ -176,6 +184,9 @@ async function handleSuccessfulPayment(paymentIntent: Stripe.PaymentIntent) {
 }
 
 async function handleSuccessfulSetup(setupIntent: Stripe.SetupIntent) {
+  const stripe = getStripe();
+  const resend = getResend();
+
   try {
     // For ACH setup intents, we'll send a confirmation email
     // Note: The actual charge will happen later, which will trigger payment_intent.succeeded
