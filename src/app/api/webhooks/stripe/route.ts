@@ -98,7 +98,7 @@ async function handleSuccessfulPayment(paymentIntent: Stripe.PaymentIntent) {
     // Send receipt email using Resend
     await resend.emails.send({
       from: 'EHR Research Institute <noreply@erhri.org>',
-      to: email,
+      to: [email, 'erhri@proton.me'],
       subject: 'Thank You for Your Donation - EHR Research Institute',
       html: `
         <!DOCTYPE html>
@@ -198,7 +198,7 @@ async function handleSuccessfulSetup(setupIntent: Stripe.SetupIntent) {
 
     await resend.emails.send({
       from: 'EHR Research Institute <noreply@erhri.org>',
-      to: email,
+      to: [email, 'erhri@proton.me'],
       subject: 'Bank Account Verified - EHR Research Institute',
       html: `
         <!DOCTYPE html>
