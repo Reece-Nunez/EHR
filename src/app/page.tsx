@@ -8,7 +8,7 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
       {/* Navigation Bar */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm">
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 py-4 sm:py-6 flex items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 py-2 sm:py-2 flex items-center justify-between gap-4">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -17,9 +17,9 @@ export default function Home() {
             <Image
               src="/erh-logo.png"
               alt="ERH Research Institute Logo"
-              width={80}
-              height={80}
-              className="w-14 h-14 sm:w-16 sm:h-16 md:w-36 md:h-24 rounded-full"
+              width={120}
+              height={40}
+              className="w-20 h-24 sm:w-24 sm:h-24 md:w-32 md:h-28"
             />
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent tracking-tight">
               ERH Research Institute
@@ -36,9 +36,9 @@ export default function Home() {
             <Image
               src="/erh-logo.png"
               alt="Surveillance Nation Logo"
-              width={40}
+              width={60}
               height={40}
-              className="w-8 h-8 sm:w-16 sm:h-12 rounded-full"
+              className="w-12 h-12 sm:w-16 sm:h-16"
             />
             Surveillance Nation
           </motion.a>
